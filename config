@@ -45,10 +45,10 @@ bindsym $mod+Tab exec rofi -show
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-#bindsym $mod+j focus left
-#bindsym $mod+k focus down
-#bindsym $mod+l focus up
-#bindsym $mod+m focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -59,21 +59,20 @@ bindsym $mod+Right focus right
 # move focused container to workspace
 mode "move" {
 	# move focused window
-#	bindsym $mod+Shift+j move left
-#	bindsym $mod+Shift+k move down
-#	bindsym $mod+Shift+l move up
-#	bindsym $mod+Shift+m move right
+	bindsym h move left
+	bindsym j move down
+	bindsym k move up
+	bindsym l move right
 	
 	# alternatively, you can use the cursor keys:
-	bindsym $mod+Shift+Left move left
-	bindsym $mod+Shift+Down move down
-	bindsym $mod+Shift+Up move up
-	bindsym $mod+Shift+Right move right
+	bindsym Left move left
+	bindsym Down move down
+	bindsym Up move up
+	bindsym Right move right
 
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 bindsym $mod+m mode "move"
 
@@ -159,10 +158,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym m resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -182,7 +181,7 @@ bindsym $mod+r mode "resize"
 mode "launch" {
     bindsym f exec firefox ; mode "default"
     bindsym p workspace $ws5; exec pcmanfm ; mode "default"
-    bindsym i exec idea.sh ; mode "default"
+    bindsym i workspace $ws3; exec idea.sh ; mode "default"
 
     bindsym Escape mode "default"
 }
@@ -230,4 +229,5 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 
 exec --no-startup-id polybar one
 
-hide_edge_borders both
+#hide_edge_borders both
+
