@@ -37,6 +37,8 @@ bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
 bindsym $mod+x exec dmenu_run -b -i -p 'Run command:'
+bindsym $mod+d exec rofi -show run -lines 8 -eh 2
+bindsym $mod+Tab exec rofi -show
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -184,13 +186,16 @@ mode "launch" {
 
     bindsym Escape mode "default"
 }
-bindsym $mod+Tab mode "launch"
+bindsym $mod+p mode "launch"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+    status_command i3status
+    position top
+  #  status_command i3blocks -c ~/.config/i3/i3blocks.conf
 }
+
 
 # color stuff
 set $base00 #272822
@@ -210,17 +215,19 @@ set $base0D #66d9ef
 set $base0E #ae81ff
 set $base0F #cc6633
 
-client.focused $base0D $base0D $base00 $base01
+#client.focused $base0D $base0D $base00 $base01
 client.focused_inactive $base02 $base02 $base03 $base01
 client.unfocused $base01 $base01 $base03 $base01
 client.urgent $base02 $base08 $base07 $base08
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight + 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight - 10 # decrease screen brightness
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute soun
 
 exec --no-startup-id polybar one
+
+hide_edge_borders both
