@@ -180,6 +180,7 @@ bindsym $mod+r mode "resize"
 # Launch mode, one app per key.
 mode "launch" {
     bindsym f exec firefox ; mode "default"
+    bindsym l exec i3lock; mode "default"
     bindsym p workspace $ws5; exec pcmanfm ; mode "default"
     bindsym i workspace $ws3; exec idea.sh ; mode "default"
 
@@ -230,4 +231,6 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 exec --no-startup-id polybar one
 
 #hide_edge_borders both
-
+exec clipit
+exec nextcloud
+exec wicd-client -t
